@@ -380,7 +380,7 @@ module.exports = makePaymentChannelPlugin({
     const claimedValue = (await self.incomingClaimSubmitted.getMax()).value
     try {
       if (claimedValue < value) {
-        await claimFunds(ctx, value, data)
+        //await claimFunds(ctx, value, data)
       }
     } catch (err) {
       ctx.plugin.debug(err)
