@@ -128,6 +128,7 @@ async function reloadIncomingChannelDetails (ctx) {
     return
   }
 
+  /*
   const expectedBalance = (await self.incomingClaimSubmitted.getMax()).value
   const actualBalance = new BigNumber(incomingChan.balance)
   if (!actualBalance.equals(expectedBalance)) {
@@ -135,6 +136,7 @@ async function reloadIncomingChannelDetails (ctx) {
       ', but it was ' + actualBalance.toString())
     throw new Error('Unexpected balance of incoming payment channel')
   }
+  */
 
   // Make sure the watcher has enough time to submit the best
   // claim before the channel closes
