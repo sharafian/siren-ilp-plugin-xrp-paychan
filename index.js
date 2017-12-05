@@ -110,6 +110,10 @@ async function reloadIncomingChannelDetails (ctx) {
     }
   }
 
+  if (self.store) {
+    await self.store.put('incoming_channel', chanId)
+  }
+
   // look up channel on ledger
   ctx.plugin.debug('retrieving details for incoming channel', chanId)
   try {
@@ -236,6 +240,7 @@ module.exports = makePaymentChannelPlugin({
     validateOpts(opts)
 
     const self = ctx.state
+    self.store = opts._store
     self.rippledServer = opts.rippledServer
     self.api = new RippleAPI({ server: opts.rippledServer })
     self.address = opts.address
